@@ -8,7 +8,7 @@
       rel="stylesheet"
       href="{{ url_for('static', filename = 'style.css') }}"
     />
-    <title>Document</title>
+    <title>Login Page</title>
   </head>
   <body>
     <nav class="navbar">
@@ -17,13 +17,17 @@
         <a class="navbar__items__text" href="/">Home</a>
         <a class="navbar__items__text" href="/login">Login</a>
         <a class="navbar__items__text" href="/register">Register</a>
-      </nav>
-      <div class="modal">
-        <form class="login_model-content">
-          <div class="container">
-            <h1>Sign Up</h1>
-          </div>
-        </form>
+    </nav>
+    <login_container class="_login_">
+      <forms action="/afterLogin" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+      </forms>
+      <div class="sub_reg">
+        <input type="submit" value="Login">
       </div>
+    </login_container>
   </body>
 </html>
