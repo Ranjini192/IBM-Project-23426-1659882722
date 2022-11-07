@@ -16,11 +16,27 @@ def home():
 def login():
     return render_template('login.html')
 
-@app.route('/afterLogin',methods=['post'])
+@app.route('/afterLogin',methods=['POST','GET'])
 def afterlogin():
-    user = request.form['username']
-    passw = request.form['password']
+    user = request.form['_id']
+    passw = request.form['psw']
     print(user,passw)
+
+    query = {'_id':{'$eq':user}}
+
+    docs = database.get_query_result(query)
+    print(docs)
+    print(len(docs.all()))
+
+    if(len(docs.all())==0):
+        return render_template('login.html',pred='The username is not found')
+    else:
+        if((user==docs[0][0]['_id'] and passw==docs[0][0]['psw'])):
+            return redirect(url_for('prediction'))
+        else:
+            print('Invalid User')
+    
+
 
 @app.route('/register')
 def register():
@@ -33,17 +49,18 @@ def afterregister():
     data = {
         '_id':x[1],
         'name':x[0],
-        'pws' : x[2]
+        'psw' : x[2]
     }
+    print(data)
 
     query = {'_id':{'$eq' : data['_id']}}
     docs = database.get_query_result(query)
 
     if(len(docs.all())==0):
         url = database.create_document(data)
-        return render_template('register.html')
+        return render_template('register.html', result="Registration is Successfully Completed")
     else:
-        print('testing')
+        return render_template("register.html", result="You are already a member!")
 
 
 if (__name__ == '__main__'):

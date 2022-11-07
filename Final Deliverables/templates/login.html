@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,6 +10,35 @@
       href="{{ url_for('static', filename = 'style.css') }}"
     />
     <title>Login Page</title>
+    <style>
+        form {
+         margin: 0 auto;
+         margin-top: 20px;
+         }
+         label {
+         color: #555;
+         display: inline-block;
+         margin-left: 18px;
+         padding-top: 10px;
+         font-size: 14px;
+         }
+         input[type=text],
+         input[type=password] ,input[type=time]{
+         color: #777;
+         padding-left: 10px;
+         margin: 10px;
+         margin-top: 12px;
+         margin-left: 18px;
+         width: 290px;
+         height: 35px;
+         border: 1px solid #c7d0d2;
+         border-radius: 2px;
+         box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .4), 0 0 0 5px #f5f7f8;
+         -webkit-transition: all .4s ease;
+         -moz-transition: all .4s ease;
+         transition: all .4s ease;
+         }
+    </style>
   </head>
   <body>
     <nav class="navbar">
@@ -18,16 +48,16 @@
         <a class="navbar__items__text" href="/login">Login</a>
         <a class="navbar__items__text" href="/register">Register</a>
     </nav>
-    <login_container class="_login_">
-      <forms action="/afterLogin" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password">
-      </forms>
-      <div class="sub_reg">
-        <input type="submit" value="Login">
-      </div>
-    </login_container>
-  </body>
-</html>
+    <register_container class="_register_">
+        <form action="afterLogin" method="post">
+            <label for="Email">Enter your Email ID</label>
+            <input type="text" id="_id"  name="_id">
+            <label for="password">Enter the Password</label>
+            <input type="password" id="psw"  name="psw">
+            <div>
+            <input type="submit" value="Login">
+            </div>
+        </form>
+    </register_container>
+    </body>
+    </html>
