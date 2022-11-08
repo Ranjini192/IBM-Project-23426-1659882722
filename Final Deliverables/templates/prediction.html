@@ -17,10 +17,15 @@
         <a class="navbar__items__text" href="/">Home</a>
         <a class="navbar__items__text" href="/logout">Logout</a>
     </nav>
-    <form action="result", methods="post,get">
-      <label for="Image">Upload your image</label>
-      <input type="file" id="myfile" name="myfile">
-      <input type="submit" value="result">
-    </form> 
+    <form action="result" method="post" enctype="multipart/form-data">
+      Select image to upload:
+      <input type="file" name="_file" id="_file">
+      <input type="submit" value="Upload Image" name="submit">
+    </form>
+    <main>
+      <div class="main__content">
+        <h1 class="main__content__heading">The Estimated Cost of the Damage:{{prediction}}</h1>
+      </div>
+    </main>
   </body>
 </html>
