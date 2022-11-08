@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,19 +9,20 @@
       rel="stylesheet"
       href="{{ url_for('static', filename = 'style.css') }}"
     />
-    <title>prediction</title>
+    <title>Login Page</title>
   </head>
   <body>
     <nav class="navbar">
-      <div class="navbar__heading">Vechile Damage Detection</div>
+      <div class="navbar__heading">Logout Page</div>
       <div class="navbar__items">
         <a class="navbar__items__text" href="/">Home</a>
-        <a class="navbar__items__text" href="/logout">Logout</a>
+        <a class="navbar__items__text" href="/login">Login</a>
+        <a class="navbar__items__text" href="/register">Register</a>
     </nav>
-    <form action="result", methods="post,get">
-      <label for="Image">Upload your image</label>
-      <input type="file" id="myfile" name="myfile">
-      <input type="submit" value="result">
-    </form> 
-  </body>
-</html>
+    <main>
+        <div class="main__content">
+          <h1 class="main__content__heading">Successfully Logged Out!</h1>
+        </div>
+      </main>
+    </body>
+    </html>

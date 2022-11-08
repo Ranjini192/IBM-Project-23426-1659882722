@@ -12,6 +12,8 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
+#login page setting 
+
 @app.route('/login')
 def login():
     return render_template('login.html')
@@ -37,6 +39,7 @@ def afterlogin():
             print('Invalid User')
     
 
+#Register page setting 
 
 @app.route('/register')
 def register():
@@ -58,10 +61,18 @@ def afterregister():
 
     if(len(docs.all())==0):
         url = database.create_document(data)
-        return render_template('register.html', result="Registration is Successfully Completed")
+        return render_template('register.html', pred="Registration is Successfully Completed")
     else:
-        return render_template("register.html", result="You are already a member!")
+        return render_template("register.html", pred="You are already a member!")
 
+#prediction
+
+@app.route('/prediction')
+def prediction():
+    return render_template('prediction.html')
+@app.route('/logout')
+def logout():
+    return render_template('logout.html')
 
 if (__name__ == '__main__'):
     app.run(debug=True) 
