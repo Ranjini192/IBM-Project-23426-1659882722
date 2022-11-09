@@ -48,7 +48,7 @@ def afterlogin():
         if((user==docs[0][0]['_id'] and passw==docs[0][0]['psw'])):
             return redirect(url_for('prediction'))
         else:
-            print('Invalid User')
+            return render_template("login.html",message="Invalid User Details")
     
 
 #Register page setting 
@@ -126,7 +126,7 @@ def upload_file():
         elif(result1=="near" and result2=="severe"):
             value="11000 - 13000 Inr"
         elif(result1=="side" and result2=="minor"):
-            value=="6000 - 8000 Inr"
+            value="6000 - 8000 Inr"
         elif(result1=="side" and result2=="moderate"):
             value="9000 - 11000Inr"
         elif(result1=="side" and result2=="severe"):
